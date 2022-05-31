@@ -1,6 +1,7 @@
 // dependencies
 const express = require("express");
 const mongoose = require("mongoose");
+const methodOverride = require("method-override");
 require("dotenv").config();
 const app = express();
 const Log = require("../models/logs.js");
@@ -19,8 +20,25 @@ db.on('connected', () => console.log('mongo connected'));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 // middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
+
+// routes/controllers
+// seed
+const logSeed = require("../models/logsSeed.js");
+
+app.get("/symptomTracker/seed", (req, res) => {
+    Log.deleteMany({}, (error, allLogs) => {});
+
+    Log.create(logSeed, (error, data) => {
+        res.redirect("/symptomTracker");
+    });
+});
 
 // I
+app.get("/symptomTracker", (req, res) => {
+    res.send("Hello world");
+})
 
 // N
 

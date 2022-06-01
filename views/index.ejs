@@ -9,15 +9,21 @@
 <body>
     <h1>Daily Symptom Log</h1>
     <main class="log container">
-         <% logs.forEach(log => { %>
-         <% const logDate = log.date; %>
-         <% const today = new Date(); %>
-         <% if (logDate.getMonth() == today.getMonth()) { %>
-            <section class="log-card">
-                <h2 class="log-date"><%=log.date.toLocaleDateString("en-US", { month: "short", day: "2-digit" })%></h2>
+        <% if (logs.length > 0) { %>
+        <% logs.forEach(log => { %>
+            <% const logDate = log.date; %>
+            <% const today = new Date(); %>
+                <% if (logDate.getMonth() == today.getMonth()) { %>
+                   <section class="log-card">
+                       <h2 class="log-date"><%=log.date.toLocaleDateString("en-US", { month: "short", day: "2-digit" })%></h2>
+                   </section>
+                <%   } %>
+        <%   }) %>
+        <%   }  else { %>
+            <section class="new-log">
+                <a href="/symptomTracker/new" class="add-log">No logs yet this month...add one now!</h2>
             </section>
-        <%   } %>
-     <%   }) %>
+         <%   } %>
     </main>
 </body>
 </html>

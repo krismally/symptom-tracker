@@ -45,7 +45,9 @@ app.get("/symptomTracker", (req, res) => {
 });
 
 // N
-
+app.get("/symptomTracker/new", (req, res) => {
+    res.render("new.ejs")
+});
 // D
 
 // U

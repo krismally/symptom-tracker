@@ -8,6 +8,11 @@
 </head>
 <body>
     <h1><%= log.date.toLocaleDateString("en-US", { weekday: "long", month: "short", day: "2-digit", year: "numeric" })%>'s Entry</h1>
+    <button><a href="/symptomTracker/<%=log._id %>/edit">Edit Log</a></button>
+    <form action="/symptomTracker/<%=log._id%>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete Log">
+    </form>
+    <button><a href="/symptomTracker">Dashboard</a></button>
     <ul>
         <li><%= log.dayRating %></li>
         <li><%= log.painLvl %></li>

@@ -15,7 +15,7 @@
             <% const today = new Date(); %>
                 <% if (logDate.getMonth() == today.getMonth()) { %>
                    <section class="log-card">
-                       <h2 class="log-date"><%=log.date.toLocaleDateString("en-US", { month: "short", day: "2-digit" })%></h2>
+                       <a href="/symptomTracker/<%= log._id %>"><h2 class="log-date"><%=log.date.toLocaleDateString("en-US", { month: "short", day: "2-digit" })%></h2></a>
                    </section>
                 <%   } %>
         <%   }) %>

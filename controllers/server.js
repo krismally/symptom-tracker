@@ -55,6 +55,13 @@ app.get("/symptomTracker", (req, res) => {
 // E
 
 // S
+app.get("/symptomTracker/:id", (req, res) => {
+    Log.findById(req.params.id, (error, foundLog) => {
+        res.render("show.ejs", {
+            log: foundLog,
+        });
+    });
+});
 
 // listener
 const PORT = process.env.PORT;

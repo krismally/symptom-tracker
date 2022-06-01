@@ -11,7 +11,7 @@ const logSchema = new mongoose.Schema({
     meds: String,
     mood: String,
     stretch: Boolean,
-    foodLog: Object,
+    foodLog: Array,
     dayNotes: String,
 });
 

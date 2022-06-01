@@ -7,6 +7,34 @@
     <title>Symptom Log</title>
 </head>
 <body>
-    
+    <h1>Edit Log Entry</h1>
+    <form action="/symptomTracker" method="POST">
+        <fieldset>
+            <label for="date">Log Date</label>
+            <input type="date" name="date" id="date"><br />
+            <input type="number" name="dayRating" placeholder="Overall Day Rating: 1-10"><br />
+            <input type="number" name="painLvl" placeholder="Pain Level: 1-10"><br />
+            <input type="number" name="fatigueLvl" placeholder="Fatigue Level: 1-10"><br />
+            <input type="number" name="cupsWater" placeholder="# of Water Glasses"><br />
+            <input type="number" name="sleepHrs" placeholder="# of Hours Slept"><br />
+            <input type="number" name="outsideTime" placeholder="Minutes Spent Outside"><br />
+            <input type="text" name="meds" placeholder="What Meds Were Taken"><br />
+            <!-- radio buttons will be emoji's to replace labels -->
+            <input type="radio" name="mood" value="Big-Frown" id="Big-Frown">
+            <label for="Big-Frown">D:</label><br />
+            <input type="radio" name="mood" value="Slight-Frown" id="Slight-Frown">
+            <label for="Slight-Frown">):</label><br />
+            <input type="radio" name="mood" value="Neutral" id="Neutral">
+            <label for="Neutral">:|</label><br />
+            <input type="radio" name="mood" value="Slight-Smile" id="Slight-Smile">
+            <label for="Slight-Smile">:)</label><br />
+            <input type="radio" name="mood" value="Big-Smile" id="Big-Smile">
+            <label for="Big-Frown">:D</label><br />
+            <label for="stretch">Check if you stretched today</label>
+            <input type="checkbox" name="stretch" id="stretch"><br />
+            <textarea name="dayNotes" id="dayNotes" placeholder="How was your day? Type any further details here :D..."></textarea><br />
+            <input type="submit">
+        </fieldset>
+    </form>
 </body>
 </html>

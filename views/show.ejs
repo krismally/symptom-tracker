@@ -25,12 +25,10 @@
         <li><%= log.stretch %></li>
         <li>Food Log: </li>
         <ul>
-            <% const meals = Object.entries(log.foodLog) %>
-            <% meals.forEach(meal => { %>
-                <% const mealType = meal[0] %>
-                <% meal.reverse().pop() %>
-            <li><%= `${mealType}: ${meal}` %></li>
-            <% }) %>
+            <li>Breakfast: <%= log.foodLog[0].breakfast %></li>
+            <li>Lunch: <%= log.foodLog[0].lunch %></li>
+            <li>Dinner: <%= log.foodLog[0].dinner %></li>
+            <li>Snacks: <%= log.foodLog[0].snacks %></li>
         </ul>
         <li><%= log.dayNotes %></li>
     </ul>

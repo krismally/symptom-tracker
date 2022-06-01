@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Symptom Log</title>
 </head>
 <body>
     <h1>New Log Entry</h1>
     <form action="/symptomTracker" method="POST">
         <fieldset>
-            <label for="date">Log Date</label>
-            <input type="date" name="date" id="date"><br />
+            <legend>Day Log</legend>
+            <label for="date">Log Date & Time</label>
+            <input type="datetime-local" name="date" id="date"><br />
             <input type="number" name="dayRating" placeholder="Overall Day Rating: 1-10"><br />
             <input type="number" name="painLvl" placeholder="Pain Level: 1-10"><br />
             <input type="number" name="fatigueLvl" placeholder="Fatigue Level: 1-10"><br />
@@ -33,8 +35,19 @@
             <label for="stretch">Check if you stretched today</label>
             <input type="checkbox" name="stretch" id="stretch"><br />
             <textarea name="dayNotes" id="dayNotes" placeholder="How was your day? Type any further details here :D..."></textarea><br />
-            <input type="submit">
         </fieldset>
+        <fieldset name="foodLog">
+            <legend>Food Log</legend>
+            <label for="breakfast">Breakfast</label>
+            <input type="text" id="breakfast" name="breakfast" placeholder="Enter breakfast..."><br />
+            <label for="lunch">Lunch</label>
+            <input type="text" id="lunch" name="lunch" placeholder="Enter lunch..."><br />
+            <label for="dinner">Dinner</label>
+            <input type="text" id="dinner" name="dinner" placeholder="Enter dinner..."><br />
+            <label for="snacks">Snacks</label>
+            <input type="text" id="snacks" name="snacks" placeholder="Enter snacks...">
+        </fieldset>
+        <input type="submit" value="Add Log">
     </form>
 </body>
 </html>

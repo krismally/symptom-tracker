@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 require("dotenv").config();
 const app = express();
-const Log = require("../models/logs.js");
+const Log = require("./models/logs.js");
 
 // database connection
 mongoose.connect(process.env.DATABASE_URL, {
@@ -22,10 +22,11 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 // middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.use("/public", express.static("public"));
 
 // routes/controllers
 // seed
-const logSeed = require("../models/logsSeed.js");
+const logSeed = require("./models/logsSeed.js");
 
 app.get("/symptomTracker/seed", (req, res) => {
     Log.deleteMany({}, (error, allLogs) => {});
@@ -98,13 +99,21 @@ app.post('/symptomTracker', (req, res) => {
     } else {
         req.body.stretch = false;
     }
+    req.body.foodLog = [{
+        breakfast: req.body.breakfast,
+        lunch: req.body.lunch,
+        dinner: req.body.dinner,
+        snacks: req.body.snacks,
+    }];
 	Log.create(req.body, (error, createdProduct) => {
         res.redirect("/symptomTracker");
     });
 });
 
+
+
 // E
-app.get("/symptomTracker/:id", (req, res) => {
+app.get("/symptomTracker/:id/edit", (req, res) => {
     Log.findById(req.params.id, (error, foundLog) => {
         res.render("edit.ejs", {
             log: foundLog,

@@ -1,5 +1,5 @@
 module.exports = [{
-    date: "2022-05-23",
+    date: new Date("2022-05-23T11:00:00"),
     dayRating: 3,
     painLvl: 5.5,
     fatigueLvl: 7,
@@ -17,7 +17,7 @@ module.exports = [{
     },
     dayNotes: "Dealt with muscle spasms and bad pain in neck, shoulders, and back all day.",
 }, {
-    date: "2022-05-24",
+    date: new Date("2022-05-24T11:00:00"),
     dayRating: 4,
     painLvl: 5,
     fatigueLvl: 6,

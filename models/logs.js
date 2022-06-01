@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const logSchema = new mongoose.Schema({
-    date: String,
+    date: Date,
     dayRating: Number,
     painLvl: Number,
     fatigueLvl: Number,

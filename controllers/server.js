@@ -37,8 +37,12 @@ app.get("/symptomTracker/seed", (req, res) => {
 
 // I
 app.get("/symptomTracker", (req, res) => {
-    res.send("Hello world");
-})
+    Log.find({}, (error, allLogs) => {
+        res.render("index.ejs", {
+            logs: allLogs,
+        });
+    });
+});
 
 // N
 

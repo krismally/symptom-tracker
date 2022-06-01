@@ -13,7 +13,7 @@ module.exports = [{
         breakfast: "Boost and Coffee",
         lunch: "1/4 Chipotle Bowl",
         dinner: "1 slice cheese pizza",
-        snacks: ["1 boost", "1 coffee", "1 root beer float"]
+        snacks: "1 boost, 1 coffee, and 1 root beer float"
     },
     dayNotes: "Dealt with muscle spasms and bad pain in neck, shoulders, and back all day.",
 }, {
@@ -31,7 +31,7 @@ module.exports = [{
         breakfast: "Smoothie, 1/2 canteloupe container, and coffee",
         lunch: "1/2 Amy's Bowl, 1/2 canteloupe container",
         dinner: "Oreo Milkshake",
-        snacks: ["1 boost", "1/2 Amy's Bowl", "6 chips ahoy cookies"]
+        snacks: "1 boost, 1/2 Amy's Bowl, and 6 chips ahoy cookies"
     },
     dayNotes: "Pain less intense this morning and then got intense after lunch, especially in legs and hips.",
 }]

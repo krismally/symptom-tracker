@@ -8,33 +8,55 @@
 </head>
 <body>
     <h1>Edit Log Entry</h1>
-    <form action="/symptomTracker" method="POST">
+    <form action="/symptomTracker/<%=log._id%>?_method=PUT" method="POST">
         <fieldset>
+            <% const date = log.date %>
             <label for="date">Log Date</label>
-            <input type="date" name="date" id="date"><br />
-            <input type="number" name="dayRating" placeholder="Overall Day Rating: 1-10"><br />
-            <input type="number" name="painLvl" placeholder="Pain Level: 1-10"><br />
-            <input type="number" name="fatigueLvl" placeholder="Fatigue Level: 1-10"><br />
-            <input type="number" name="cupsWater" placeholder="# of Water Glasses"><br />
-            <input type="number" name="sleepHrs" placeholder="# of Hours Slept"><br />
-            <input type="number" name="outsideTime" placeholder="Minutes Spent Outside"><br />
-            <input type="text" name="meds" placeholder="What Meds Were Taken"><br />
+            <input type="datetime-local" name="date" id="date" value="<%=date.toISOString().slice(0, 16)%>"><br />
+            <input type="number" name="dayRating" value="<%=log.dayRating%>" placeholder="Overall Day Rating: 1-10"><br />
+            <input type="number" name="painLvl" value="<%=log.painLvl%>" placeholder="Pain Level: 1-10"><br />
+            <input type="number" name="fatigueLvl" value="<%=log.fatigueLvl%>" placeholder="Fatigue Level: 1-10"><br />
+            <input type="number" name="cupsWater" value="<%=log.cupsWater%>" placeholder="# of Water Glasses"><br />
+            <input type="number" name="sleepHrs" value="<%=log.cupsWater%>" placeholder="# of Hours Slept"><br />
+            <input type="number" name="outsideTime" value="<%=log.cupsWater%>" placeholder="Minutes Spent Outside"><br />
+            <input type="text" name="meds" value="<%=log.meds%>" placeholder="What Meds Were Taken"><br />
             <!-- radio buttons will be emoji's to replace labels -->
-            <input type="radio" name="mood" value="Big-Frown" id="Big-Frown">
+            <input type="radio" name="mood" value="Big-Frown" id="Big-Frown" <% if (log.mood == "Big-Frown") { %>
+                checked
+            <% } %>>
             <label for="Big-Frown">D:</label><br />
-            <input type="radio" name="mood" value="Slight-Frown" id="Slight-Frown">
+            <input type="radio" name="mood" value="Slight-Frown" id="Slight-Frown" <% if (log.mood == "Slight-Frown") { %>
+                checked
+            <% } %>>
             <label for="Slight-Frown">):</label><br />
-            <input type="radio" name="mood" value="Neutral" id="Neutral">
+            <input type="radio" name="mood" value="Neutral" id="Neutral" <% if (log.mood == "Neutral") { %>
+                checked
+            <% } %>>
             <label for="Neutral">:|</label><br />
-            <input type="radio" name="mood" value="Slight-Smile" id="Slight-Smile">
+            <input type="radio" name="mood" value="Slight-Smile" id="Slight-Smile" <% if (log.mood == "Slight-Smile") { %>
+                checked
+            <% } %>>
             <label for="Slight-Smile">:)</label><br />
-            <input type="radio" name="mood" value="Big-Smile" id="Big-Smile">
+            <input type="radio" name="mood" value="Big-Smile" id="Big-Smile" <% if (log.mood == "Big-Smile") { %>
+                checked
+            <% } %>>
             <label for="Big-Frown">:D</label><br />
             <label for="stretch">Check if you stretched today</label>
-            <input type="checkbox" name="stretch" id="stretch"><br />
-            <textarea name="dayNotes" id="dayNotes" placeholder="How was your day? Type any further details here :D..."></textarea><br />
-            <input type="submit">
+            <input type="checkbox" name="stretch" id="stretch" <%= log.stretch ? "checked" : "" %>><br />
+            <textarea name="dayNotes" id="dayNotes" placeholder="How was your day? Type any further details here :D..."><%= log.dayNotes %></textarea><br />
         </fieldset>
+        <fieldset name="foodLog">
+            <legend>Food Log</legend>
+            <label for="breakfast">Breakfast</label>
+            <input type="text" id="breakfast" name="breakfast" value="<%=log.foodLog[0].breakfast%>" placeholder="Enter breakfast..."><br />
+            <label for="lunch">Lunch</label>
+            <input type="text" id="lunch" name="lunch" value="<%=log.foodLog[0].lunch%>" placeholder="Enter lunch..."><br />
+            <label for="dinner">Dinner</label>
+            <input type="text" id="dinner" name="dinner" value="<%=log.foodLog[0].dinner%>" placeholder="Enter dinner..."><br />
+            <label for="snacks">Snacks</label>
+            <input type="text" id="snacks" name="snacks" value="<%=log.foodLog[0].snacks%>" placeholder="Enter snacks...">
+        </fieldset>
+        <input type="submit" value="Save Changes">
     </form>
 </body>
 </html>

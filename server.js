@@ -65,6 +65,27 @@ app.put("/symptomTracker/:id", (req, res) => {
         req.body.completed = false
     }
 
+    req.body.date = new Date(req.body.date);
+    // could loop here - clean up later
+    req.body.dayRating = Number(req.body.dayRating);
+    req.body.painLvl = Number(req.body.painLvl);
+    req.body.fatigueLvl = Number(req.body.fatigueLvl);
+    req.body.cupsWater = Number(req.body.cupsWater);
+    req.body.sleepHrs = Number(req.body.sleepHrs);
+    req.body.outsideTime = Number(req.body.outsideTime);
+    if (req.body.stretch === "on") {
+        req.body.stretch = true;
+    } else {
+        req.body.stretch = false;
+    }
+
+    req.body.foodLog = [{
+        breakfast: req.body.breakfast,
+        lunch: req.body.lunch,
+        dinner: req.body.dinner,
+        snacks: req.body.snacks,
+    }];
+
     Log.findByIdAndUpdate(
         req.params.id,
         req.body,

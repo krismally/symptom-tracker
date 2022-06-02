@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Symptom Log</title>
+    <%- include("./partials/header.ejs") %>
 </head>
 <body>
     <h1>Edit Log Entry</h1>
     <form action="/symptomTracker/<%=log._id%>?_method=PUT" method="POST">
         <fieldset>
-            <% const date = log.date %>
             <label for="date">Log Date</label>
+            <% const date = log.date %>
             <input type="datetime-local" name="date" id="date" value="<%=date.toISOString().slice(0, 16)%>"><br />
             <input type="number" name="dayRating" value="<%=log.dayRating%>" placeholder="Overall Day Rating: 1-10"><br />
             <input type="number" name="painLvl" value="<%=log.painLvl%>" placeholder="Pain Level: 1-10"><br />

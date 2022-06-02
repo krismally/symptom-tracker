@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Symptom Log</title>
+    <%- include("./partials/header.ejs") %>
 </head>
 <body>
     <h1>New Log Entry</h1>
@@ -14,9 +15,9 @@
             <legend>Day Log</legend>
             <label for="date">Log Date & Time</label>
             <input type="datetime-local" name="date" id="date"><br />
-            <input type="number" name="dayRating" placeholder="Overall Day Rating: 1-10"><br />
-            <input type="number" name="painLvl" placeholder="Pain Level: 1-10"><br />
-            <input type="number" name="fatigueLvl" placeholder="Fatigue Level: 1-10"><br />
+            <input type="number" name="dayRating" placeholder="Overall Day Rating: 1-10" min="1" max="10"><br />
+            <input type="number" name="painLvl" placeholder="Pain Level: 1-10" min="1" max="10"><br />
+            <input type="number" name="fatigueLvl" placeholder="Fatigue Level: 1-10" min="1" max="10"><br />
             <input type="number" name="cupsWater" placeholder="# of Water Glasses"><br />
             <input type="number" name="sleepHrs" placeholder="# of Hours Slept"><br />
             <input type="number" name="outsideTime" placeholder="Minutes Spent Outside"><br />

@@ -10,28 +10,30 @@
 <body>
     <%- include("./partials/nav.ejs") %>
     <h1><%= log.date.toLocaleDateString("en-US", { weekday: "long", month: "short", day: "2-digit", year: "numeric" })%>'s Entry</h1>
-    <button><a href="/symptomTracker/<%=log._id %>/edit">Edit Log</a></button>
+    <a href="/symptomTracker/<%=log._id %>/edit"><input type="button" value="Edit Log"></a>
     <form action="/symptomTracker/<%=log._id%>?_method=DELETE" method="POST">
         <input type="submit" value="Delete Log">
     </form>
-    <ul>
-        <li><h4>Overall Day Rating (1-10):</h4><%= log.dayRating %></li>
-        <li><h4>Pain Level (1-10):</h4><%= log.painLvl %></li>
-        <li><h4>Fatigue Level (1-10):</h4><%= log.fatigueLvl %></li>
-        <li><h4>Glasses of Water:</h4><%= log.cupsWater %></li>
-        <li><h4>Hours of Sleep:</h4><%= log.sleepHrs %></li>
-        <li><h4>Time Spent Outside (minutes):</h4><%= log.outsideTime %></li>
-        <li><h4>Meds Taken:</h4><%= log.meds %></li>
-        <li><h4>Today's Mood:</h4><%= log.mood %></li>
-        <li><h4>Did you stretch?</h4><%= log.stretch %></li>
-        <li><h4>Food Log:</h4></li>
-        <ul>
-            <li>Breakfast: <%= log.foodLog[0].breakfast %></li>
-            <li>Lunch: <%= log.foodLog[0].lunch %></li>
-            <li>Dinner: <%= log.foodLog[0].dinner %></li>
-            <li>Snacks: <%= log.foodLog[0].snacks %></li>
+    <main class="entry m-3 container row-cols-1 g-4">
+        <dl class="row my-3 g-2">
+            <dt class="col-sm-4 fs-5">Overall Day Rating (1-10):</dt><dd class="col-sm-8 fs-5"><%= log.dayRating %></li>
+            <dt class="col-sm-4 fs-5">Pain Level (1-10):</dt><dl class="col-sm-8 fs-5"><%= log.painLvl %></dl>
+            <dt class="col-sm-4 fs-5">Fatigue Level (1-10):</dt><dl class="col-sm-8 fs-5"><%= log.fatigueLvl %></dl>
+            <dt class="col-sm-4 fs-5">Glasses of Water:</dt><dl class="col-sm-8 fs-5"><%= log.cupsWater %></dl>
+            <dt class="col-sm-4 fs-5">Hours of Sleep:</dt><dl class="col-sm-8 fs-5"><%= log.sleepHrs %></dl>
+            <dt class="col-sm-4 fs-5">Time Spent Outside (minutes):</dt><dl class="col-sm-8 fs-5"><%= log.outsideTime %></dl>
+            <dt class="col-sm-4 fs-5">Meds Taken:</dt><dl class="col-sm-8 fs-5"><%= log.meds %></dl>
+            <dt class="col-sm-4 fs-5">Today's Mood:</dt><dl class="col-sm-8 fs-5"><%= log.mood %></dl>
+            <dt class="col-sm-4 fs-5">Did you stretch?</dt><dl class="col-sm-8 fs-5"><%= log.stretch %></dl>
+            <dt class="col-sm-4 fs-5">Food Log:</dt>
+            <dl class="col-sm-8 fs-5">
+                <dl>Breakfast: <%= log.foodLog[0].breakfast %></dl>
+                <dl>Lunch: <%= log.foodLog[0].lunch %></dl>
+                <dl>Dinner: <%= log.foodLog[0].dinner %></dl>
+                <dl>Snacks: <%= log.foodLog[0].snacks %></dl>
+            </dl>
+            <dt class="col-sm-4 fs-5">Day Notes:</dt><dl class="col-sm-8 fs-5"><%= log.dayNotes %></dl>
         </ul>
-        <li><h4>Day Notes:</h4><%= log.dayNotes %></li>
-    </ul>
+    </main>
 </body>
 </html>

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Symptom Log</title>
     <%- include("./partials/head.ejs") %>
 </head>
@@ -23,60 +22,78 @@
                 <input type="number" name="dayRating" min="1" max="10"><br />
             </div>
             <div class="row mb-3">
-                <input type="number" name="painLvl" placeholder="Pain Level: 1-10" min="1" max="10"><br />
+                <label for="painLvl">Pain Level: 1-10</label>
+                <input type="number" name="painLvl" min="1" max="10"><br />
             </div>
             <div class="row mb-3">
-            <input type="number" name="fatigueLvl" placeholder="Fatigue Level: 1-10" min="1" max="10"><br />
+                <label for="painLvl">Fatigue Level: 1-10</label>
+                <input type="number" name="fatigueLvl" min="1" max="10"><br />
             </div>
             <div class="row mb-3">
-            <input type="number" name="cupsWater" placeholder="# of Water Glasses"><br />
+                <label for="cupsWater">Glasses of Water</label>
+                <input type="number" name="cupsWater"><br />
             </div>
             <div class="row mb-3">
-            <input type="number" name="sleepHrs" placeholder="# of Hours Slept"><br />
+                <label for="sleepHrs"># of Hours Slept</label>
+                <input type="number" name="sleepHrs"><br />
             </div>
             <div class="row mb-3">
-            <input type="number" name="outsideTime" placeholder="Minutes Spent Outside"><br />
+                <label for="outsideTime">Minutes Spent Outside</label>
+                <input type="number" name="outsideTime"><br />
             </div>
             <div class="row mb-3">
-            <input type="text" name="meds" placeholder="What Meds Were Taken"><br />
+                <label for="sleepHrs">Meds Taken Today</label>
+                <input type="text" name="meds"><br />
             </div>
-            <!-- radio buttons will be emoji's to replace labels -->
-            <input type="radio" name="mood" value="Big-Frown" id="Big-Frown">
-            <label for="Big-Frown">D:</label><br />
-            <input type="radio" name="mood" value="Slight-Frown" id="Slight-Frown">
-            <label for="Slight-Frown">):</label><br />
-            <input type="radio" name="mood" value="Neutral" id="Neutral">
-            <label for="Neutral">:|</label><br />
-            <input type="radio" name="mood" value="Slight-Smile" id="Slight-Smile">
-            <label for="Slight-Smile">:)</label><br />
-            <input type="radio" name="mood" value="Big-Smile" id="Big-Smile">
-            <label for="Big-Frown">:D</label><br />
-            <label for="stretch">Stretched?</label>
-            <input class="mb-2" type="checkbox" name="stretch" id="stretch"><br />
-            
+            <div class="mb-3">
+                <label for="stretch">Stretched?</label>
+                <input class="mb-2" type="checkbox" name="stretch" id="stretch"><br />
+            </div>
         </fieldset>
         <fieldset class="col" name="foodLog">
             <legend>Food Log</legend>
             <div class="row mb-3">
                 <label for="breakfast">Breakfast</label>
-                <input type="text" id="breakfast" name="breakfast" placeholder="Enter breakfast..."><br />
+                <input type="text" id="breakfast" name="breakfast" ><br />
             </div>
             <div class="row mb-3">
                 <label for="lunch">Lunch</label>
-                <input type="text" id="lunch" name="lunch" placeholder="Enter lunch..."><br />
+                <input type="text" id="lunch" name="lunch" ><br />
             </div>
             <div class="row mb-3">
                 <label for="dinner">Dinner</label>
-                <input type="text" id="dinner" name="dinner" placeholder="Enter dinner..."><br />
+                <input type="text" id="dinner" name="dinner" ><br />
             </div>
             <div class="row mb-3">
                 <label for="snacks">Snacks</label>
-                <input type="text" id="snacks" name="snacks" placeholder="Enter snacks...">
+                <input type="text" id="snacks" name="snacks" >
             </div>
-            <div class="row mb-3">
-                <label for="snacks">Day Notes</label>
-                <textarea name="dayNotes" id="dayNotes" placeholder="How was your day? Type any further details here :D..."></textarea>
+            <legend>Mood Log</legend>
+            <!-- radio buttons will be emoji's to replace labels -->
+            <div class="form-check form-check-inline mb-3">
+                <input type="radio" name="mood" value="Big-Frown" id="Big-Frown">
+                <label for="Big-Frown">D:</label><br />
             </div>
+            <div class="form-check form-check-inline mb-3">
+                <input type="radio" name="mood" value="Slight-Frown" id="Slight-Frown">
+                <label for="Slight-Frown">):</label><br />
+            </div>
+            <div class="form-check form-check-inline mb-3">    
+                <input type="radio" name="mood" value="Neutral" id="Neutral">
+                <label for="Neutral">:|</label><br />
+            </div>
+            <div class="form-check form-check-inline mb-3">
+                <input type="radio" name="mood" value="Slight-Smile" id="Slight-Smile">
+                <label for="Slight-Smile">:)</label><br />
+            </div>
+            <div class="form-check form-check-inline mb-3">    
+                <input type="radio" name="mood" value="Big-Smile" id="Big-Smile">
+                <label for="Big-Frown">:D</label><br />
+            </div>
+        </fieldset>
+        <fieldset class="row">
+            <legend>Day Notes</legend>
+            <textarea name="dayNotes" id="dayNotes" placeholder="How was your day? Type any further details here :D..."></textarea><br />
         </fieldset>
         <input type="submit" value="Add Log">
     </form>

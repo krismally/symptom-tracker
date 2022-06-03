@@ -1,4 +1,4 @@
-# symptom-tracker
+# Logr
 A CRUD web application to track symptoms for people with Chronic Illnesses. Based off of my own analog health tracker!
 
 ## Technologies Used

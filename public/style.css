@@ -8,7 +8,8 @@ nav {
 }
 
 nav a,
-.nav-link {
+.nav-link,
+.navbar-brand:hover {
 	color: #8ECAE6;
 }
 
@@ -16,6 +17,14 @@ nav a,
 	font-size: 25px;
 }
 
-.navbar-brand:hover {
-	color: #8ECAE6;
+.rows {
+	text-align: center;
 }
+
+.card {
+	height: 200px;
+	min-width: 125px;
+	max-width: 175px;
+	text-align: center;
+}
+

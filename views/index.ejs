@@ -10,24 +10,28 @@
 <body>
     <%- include("./partials/nav.ejs") %>
     <main class="log container">
-        <h1>My Logs</h1>
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-        <% if (logs.length > 0) { %>
-        <% logs.sort((a, b) => { return a.date - b.date }) %>
-        <% logs.forEach(log => { %>
+        <h1 class="py-4">My Logs</h1>
+        <div class="row row-cols-1 row-cols-md-5 g-3 border border-info py-4">
             <div class="col">
-                <section class="card">
-                    <a href="/symptomTracker/<%= log._id %>" class="card-title"><h2 class="log-date "><%=log.date.toLocaleDateString("en-US", { month: "short", day: "2-digit" })%></h2></a>
+                <a href="/symptomTracker/new" class="add-log">
+                <section class="new-log card mb-3 mx-3">
+                    <h2>Add new log!</h2>
                 </section>
+                </a>
             </div>
-        <%   }) %>
-        <%   }  else { %>
-            <div class="col">
-                <section class="new-log card">
-                    <a href="/symptomTracker/new" class="add-log card-title">No logs yet this month...add one now!</h2>
-                </section>
+                <% if (logs.length > 0) { %>
+                <% logs.sort((a, b) => { return a.date - b.date }) %>
+                <% logs.forEach(log => { %>
+                    <div class="col">
+                        <a href="/symptomTracker/<%= log._id %>">
+                        <section class="card mb-3 mx-3">
+                            <h2 class="log-date card-title"><%=log.date.toLocaleDateString("en-US", { month: "short", day: "2-digit" })%></h2>
+                        </section>
+                    </a>
+                    </div>
+                <%   }) %>
+                <%   } %>
             </div>
-         <%   } %>
         </div>
     </main>
 </body>

@@ -4,110 +4,99 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%- include("./partials/head.ejs") %>
+    <%- include("../partials/head.ejs") %>
 </head>
 <body>
-    <%- include("./partials/nav.ejs") %>
-    <h1 class="my-3 mx-2">Edit Log</h1>
-    <form action="/logr/<%= log._id%>?_method=PUT" method="POST" class="row g-5 container-fluid">
+    <%- include("../partials/tayNav.ejs") %>
+    <h1 class="my-3 mx-2">New Log Entry</h1>
+    <form action="/logr/tay" method="POST" class="row g-5 container-fluid">
         <fieldset class="col">
             <legend>Day Log</legend>
             <div class="row mb-3">
-                <% const date = log.date %>
                 <label for="date">Date & Time</label>
-                <input type="datetime-local" name="date" id="date" value="<%=date.toISOString().slice(0, 16)%>"><br />
+                <input type="datetime-local" name="date" id="date" required><br />
             </div>
             <div class="row mb-3">
                 <label for="dayRating">Overall Day Rating: 1-10</label>
-                <input type="number" name="dayRating" min="1" max="10" value="<%=log.dayRating%>"><br />
+                <input type="number" name="dayRating" min="1" max="10"><br />
             </div>
             <div class="row mb-3">
                 <label for="painLvl">Pain Level: 1-10</label>
-                <input type="number" name="painLvl" min="1" max="10" value="<%=log.painLvl%>"><br />
+                <input type="number" name="painLvl" min="1" max="10"><br />
             </div>
             <div class="row mb-3">
                 <label for="painLvl">Fatigue Level: 1-10</label>
-                <input type="number" name="fatigueLvl" min="1" max="10" value="<%=log.fatigueLvl%>"><br />
+                <input type="number" name="fatigueLvl" min="1" max="10"><br />
             </div>
             <div class="row mb-3">
                 <label for="cupsWater">Glasses of Water</label>
-                <input type="number" name="cupsWater" value="<%=log.cupsWater%>"><br />
+                <input type="number" name="cupsWater"><br />
             </div>
             <div class="row mb-3">
                 <label for="sleepHrs"># of Hours Slept</label>
-                <input type="number" name="sleepHrs" value="<%=log.sleepHrs%>"><br />
+                <input type="number" name="sleepHrs"><br />
             </div>
             <div class="row mb-3">
                 <label for="outsideTime">Minutes Spent Outside</label>
-                <input type="number" name="outsideTime" value="<%=log.outsideTime%>"><br />
+                <input type="number" name="outsideTime"><br />
             </div>
             <div class="row mb-3">
                 <label for="sleepHrs">Meds Taken Today</label>
-                <input type="text" name="meds" value="<%=log.meds%>"><br />
+                <input type="text" name="meds"><br />
             </div>
             <div class="mb-3">
                 <label for="stretch">Stretched?</label>
-                <input class="mb-2" type="checkbox" name="stretch" id="stretch" <%= log.stretch ? "checked" : "" %>><br />
+                <input class="mb-2" type="checkbox" name="stretch" id="stretch"><br />
             </div>
         </fieldset>
         <fieldset class="col" name="foodLog">
             <legend>Food Log</legend>
             <div class="row mb-3">
                 <label for="breakfast">Breakfast</label>
-                <input type="text" id="breakfast" name="breakfast" value="<%=log.foodLog[0].breakfast%>"><br />
+                <input type="text" id="breakfast" name="breakfast" ><br />
             </div>
             <div class="row mb-3">
                 <label for="lunch">Lunch</label>
-                <input type="text" id="lunch" name="lunch" value="<%=log.foodLog[0].lunch%>"><br />
+                <input type="text" id="lunch" name="lunch" ><br />
             </div>
             <div class="row mb-3">
                 <label for="dinner">Dinner</label>
-                <input type="text" id="dinner" name="dinner" value="<%=log.foodLog[0].dinner%>"><br />
+                <input type="text" id="dinner" name="dinner" ><br />
             </div>
             <div class="row mb-3">
                 <label for="snacks">Snacks</label>
-                <input type="text" id="snacks" name="snacks" value="<%=log.foodLog[0].snacks%>">
+                <input type="text" id="snacks" name="snacks" >
             </div>
             <legend>Mood Log</legend>
             <!-- radio buttons will be emoji's to replace labels -->
             <div class="form-check form-check-inline mb-3">
-                <input type="radio" name="mood" value="Big-Frown" id="Big-Frown" <% if (log.mood == "Big-Frown") { %>
-                    checked
-                <% } %>>
+                <input type="radio" name="mood" value="Big-Frown" id="Big-Frown">
                 <label for="Big-Frown">D:</label><br />
             </div>
             <div class="form-check form-check-inline mb-3">
-                <input type="radio" name="mood" value="Slight-Frown" id="Slight-Frown" <% if (log.mood == "Slight-Frown") { %>
-                    checked
-                <% } %>>
+                <input type="radio" name="mood" value="Slight-Frown" id="Slight-Frown">
                 <label for="Slight-Frown">):</label><br />
             </div>
             <div class="form-check form-check-inline mb-3">    
-                <input type="radio" name="mood" value="Neutral" id="Neutral" <% if (log.mood == "Neutral") { %>
-                    checked
-                <% } %>>
+                <input type="radio" name="mood" value="Neutral" id="Neutral">
                 <label for="Neutral">:|</label><br />
             </div>
             <div class="form-check form-check-inline mb-3">
-                <input type="radio" name="mood" value="Slight-Smile" id="Slight-Smile" <% if (log.mood == "Slight-Smile") { %>
-                    checked
-                <% } %>>
+                <input type="radio" name="mood" value="Slight-Smile" id="Slight-Smile">
                 <label for="Slight-Smile">:)</label><br />
             </div>
             <div class="form-check form-check-inline mb-3">    
-                <input type="radio" name="mood" value="Big-Smile" id="Big-Smile" <% if (log.mood == "Big-Smile") { %>
-                    checked
-                <% } %>>
+                <input type="radio" name="mood" value="Big-Smile" id="Big-Smile">
                 <label for="Big-Frown">:D</label><br />
             </div>
         </fieldset>
         <fieldset class="row">
             <legend>Day Notes</legend>
-            <textarea name="dayNotes" id="dayNotes" placeholder="How was your day? Type any further details here :D..."><%= log.dayNotes %></textarea><br />
+            <textarea name="dayNotes" id="dayNotes" placeholder="How was your day? Type any further details here :D..."></textarea><br />
         </fieldset>
-        <input class="mb-5 btn edit text-light" type="submit" value="Save Edits">
+        <input class="mb-5 btn add text-light" type="submit" value="Add Log">
     </form>
-    <script src="../public/bootstrap/src/bootstrap-input-spinner.js"></script>
+    <script src="../../public/bootstrap/src/bootstrap-input-spinner.js"></script>
     <script>
         $("input[type='number']").inputSpinner();
     </script>

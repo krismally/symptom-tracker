@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%- include("./partials/head.ejs") %>
+    <%- include("../partials/head.ejs") %>
 </head>
 <body>
-    <%- include("./partials/nav.ejs") %>
+    <%- include("../partials/tayNav.ejs") %>
     <main class="log container">
         <h1 class="py-4">My Logs</h1>
         <div class="row row-cols-1 row-cols-md-5 g-3 border border-info py-4">
             <div class="col">
-                <a href="/logr/new" class="add-log">
+                <a href="/logr/tay/new" class="add-log">
                 <section class="new-log card mb-3 mx-3">
                     <h2 class="card-title my-3">New Log</h2>
                 </section>
@@ -22,7 +22,7 @@
                 <% logs.sort((a, b) => { return b.date - a.date }) %>
                 <% logs.forEach(log => { %>
                     <div class="col">
-                        <a href="/logr/<%= log._id %>">
+                        <a href="/logr/tay/<%= log._id %>">
                         <section class="card mb-3 mx-3">
                             <h2 class="log-date card-title my-3"><%=log.date.toLocaleDateString("en-US", { month: "short", day: "2-digit" })%></h2>
                         </section>

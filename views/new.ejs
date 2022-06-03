@@ -4,18 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Symptom Log</title>
     <%- include("./partials/head.ejs") %>
 </head>
 <body>
     <%- include("./partials/nav.ejs") %>
     <h1 class="my-3 mx-2">New Log Entry</h1>
-    <form action="/symptomTracker" method="POST" class="row g-5 container-fluid">
+    <form action="/logr" method="POST" class="row g-5 container-fluid">
         <fieldset class="col">
             <legend>Day Log</legend>
             <div class="row mb-3">
                 <label for="date">Date & Time</label>
-                <input type="datetime-local" name="date" id="date"><br />
+                <input type="datetime-local" name="date" id="date" required><br />
             </div>
             <div class="row mb-3">
                 <label for="dayRating">Overall Day Rating: 1-10</label>

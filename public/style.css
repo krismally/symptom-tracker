@@ -18,7 +18,7 @@ nav a,
 }
 
 h1 {
-	color: #023047;
+	color: #003566;
 }
 
 .rows {
@@ -32,10 +32,11 @@ h1 {
 
 .card {
 	height: 200px;
-	min-width: 125px;
+	min-width: 115px;
 	max-width: 175px;
 	text-align: center;
 	border-color: #023047;
+	color: #003566;
 }
 
 .card:hover {

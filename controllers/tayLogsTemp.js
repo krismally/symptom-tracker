@@ -1,75 +1,32 @@
 // dependencies
 const express = require("express");
-const mongoose = require("mongoose");
-const methodOverride = require("method-override");
-require("dotenv").config();
-const app = express();
-const Log = require("./models/logs.js");
+const router = express.Router();
+const TayLog = require("../models/tayLogs.js")
 
-// routers
-const tayLogController = require("./controllers/tayLogsTemp.js");
-
-// database connection
-mongoose.connect(process.env.DATABASE_URL, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true
-});
-
-// database Connection Error/Success
-// define callback functions for various events
-const db = mongoose.connection
-db.on('error', (err) => console.log(err.message + ' is mongo not running?'));
-db.on('connected', () => console.log('mongo connected'));
-db.on('disconnected', () => console.log('mongo disconnected'));
-
-// middleware
-app.use(express.urlencoded({ extended: true }));
-app.use(methodOverride("_method"));
-app.use("/public", express.static("public"));
-
-// routes/controllers
-app.use("/logr/tay", tayLogController);
-
-// seed
-const logSeed = require("./models/logsSeed.js");
-
-app.get("/logr/seed", (req, res) => {
-    Log.deleteMany({}, (error, allLogs) => {});
-
-    Log.create(logSeed, (error, data) => {
-        res.redirect("/logr");
-    });
-});
-
-// heroku redirect
-app.get("/", (req, res) => {
-    res.redirect("/logr");
-})
-
-
+// tay's temp logs
 // I
-app.get("/logr", (req, res) => {
-    Log.find({}, (error, allLogs) => {
-        res.render("index.ejs", {
+router.get("/", (req, res) => {
+    TayLog.find({}, (error, allLogs) => {
+        res.render("tayTemp/tayIndex.ejs", {
             logs: allLogs,
         });
     });
 });
 
 // N
-app.get("/logr/new", (req, res) => {
-    res.render("new.ejs");
+router.get("/new", (req, res) => {
+    res.render("tayTemp/tayNew.ejs");
 });
 
 // D
-app.delete("/logr/:id", (req, res) => {
-    Log.findByIdAndRemove(req.params.id, (error, data) => {
-        res.redirect("/logr");
+router.delete("/:id", (req, res) => {
+    TayLog.findByIdAndRemove(req.params.id, (error, data) => {
+        res.redirect("/logr/tay");
     });
 });
 
 // U
-app.put("/logr/:id", (req, res) => {
+router.put("/:id", (req, res) => {
     if (req.body.completed === "on") {
         req.body.completed = true;
     } else {
@@ -97,20 +54,20 @@ app.put("/logr/:id", (req, res) => {
         snacks: req.body.snacks,
     }];
 
-    Log.findByIdAndUpdate(
+    TayLog.findByIdAndUpdate(
         req.params.id,
         req.body,
         {
             new: true,
         },
         (error, updatedLog) => {
-            res.redirect(`/logr/${req.params.id}`);
+            res.redirect(`/logr/tay/${req.params.id}`);
         }
     );
 });
 
 // C
-app.post('/logr', (req, res) => {
+router.post('/', (req, res) => {
     if (req.body.completed === 'on') {
 		//if checked, req.body.completed is set to 'on'
 		req.body.completed = true;
@@ -137,33 +94,29 @@ app.post('/logr', (req, res) => {
         dinner: req.body.dinner,
         snacks: req.body.snacks,
     }];
-	Log.create(req.body, (error, createdProduct) => {
-        res.redirect("/logr");
+	TayLog.create(req.body, (error, createdLog) => {
+        res.redirect("/logr/tay");
     });
 });
 
 
 
 // E
-app.get("/logr/:id/edit", (req, res) => {
-    Log.findById(req.params.id, (error, foundLog) => {
-        res.render("edit.ejs", {
+router.get("/:id/edit", (req, res) => {
+    TayLog.findById(req.params.id, (error, foundLog) => {
+        res.render("tayTemp/tayEdit.ejs", {
             log: foundLog,
         });
     });
 });
 
 // S
-app.get("/logr/:id", (req, res) => {
-    Log.findById(req.params.id, (error, foundLog) => {
-        res.render("show.ejs", {
+router.get("/:id", (req, res) => {
+    TayLog.findById(req.params.id, (error, foundLog) => {
+        res.render("tayTemp/tayShow.ejs", {
             log: foundLog,
         });
     });
 });
 
-// listener
-const PORT = process.env.PORT;
-app.listen(PORT, () => {
-    console.log(`express is listening on port ${PORT}`);
-})
+module.exports = router;

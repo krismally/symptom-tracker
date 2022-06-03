@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%- include("./partials/head.ejs") %>
+    <title>Logr: Chronic Illness Daily Symptom Log</title>
+    <link href="../../../public/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../../../public/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <%- include("./partials/nav.ejs") %>
+    <%- include("../partials/tayNav.ejs") %>
     <h1 class="my-3 mx-2">Edit Log</h1>
-    <form action="/logr/<%= log._id%>?_method=PUT" method="POST" class="row g-5 container-fluid">
+    <form action="/logr/tay/<%= log._id%>?_method=PUT" method="POST" class="row g-5 container-fluid">
         <fieldset class="col">
             <legend>Day Log</legend>
             <div class="row mb-3">
@@ -107,7 +110,7 @@
         </fieldset>
         <input class="mb-5 btn edit text-light" type="submit" value="Save Edits">
     </form>
-    <script src="../public/bootstrap/src/bootstrap-input-spinner.js"></script>
+    <script src="../../public/bootstrap/src/bootstrap-input-spinner.js"></script>
     <script>
         $("input[type='number']").inputSpinner();
     </script>

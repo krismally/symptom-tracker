@@ -36,6 +36,10 @@ app.get("/symptomTracker/seed", (req, res) => {
     });
 });
 
+app.get("/", (req, res) => {
+    res.redirect("/symptomTracker");
+})
+
 // I
 app.get("/symptomTracker", (req, res) => {
     Log.find({}, (error, allLogs) => {

@@ -10,8 +10,8 @@
 <body>
     <%- include("./partials/nav.ejs") %>
     <h1>Edit Log Entry</h1>
-    <form action="/symptomTracker/<%=log._id%>?_method=PUT" method="POST">
-        <fieldset>
+    <form action="/symptomTracker/<%=log._id%>?_method=PUT" method="POST" class="row">
+        <fieldset class="col">
             <legend>Day Log</legend>
             <label for="date">Log Date</label>
             <% const date = log.date %>
@@ -48,7 +48,7 @@
             <input type="checkbox" name="stretch" id="stretch" <%= log.stretch ? "checked" : "" %>><br />
             <textarea name="dayNotes" id="dayNotes" placeholder="How was your day? Type any further details here :D..."><%= log.dayNotes %></textarea><br />
         </fieldset>
-        <fieldset name="foodLog">
+        <fieldset class="col" name="foodLog">
             <legend>Food Log</legend>
             <label for="breakfast">Breakfast</label>
             <input type="text" id="breakfast" name="breakfast" value="<%=log.foodLog[0].breakfast%>" placeholder="Enter breakfast..."><br />

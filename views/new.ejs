@@ -10,19 +10,36 @@
 </head>
 <body>
     <%- include("./partials/nav.ejs") %>
-    <h1>New Log Entry</h1>
-    <form action="/symptomTracker" method="POST">
-        <fieldset>
+    <h1 class="my-3 mx-2">New Log Entry</h1>
+    <form action="/symptomTracker" method="POST" class="row g-5 container-fluid">
+        <fieldset class="col">
             <legend>Day Log</legend>
-            <label for="date">Log Date & Time</label>
-            <input type="datetime-local" name="date" id="date"><br />
-            <input type="number" name="dayRating" placeholder="Overall Day Rating: 1-10" min="1" max="10"><br />
-            <input type="number" name="painLvl" placeholder="Pain Level: 1-10" min="1" max="10"><br />
+            <div class="row mb-3">
+                <label for="date">Date & Time</label>
+                <input type="datetime-local" name="date" id="date"><br />
+            </div>
+            <div class="row mb-3">
+                <label for="dayRating">Overall Day Rating: 1-10</label>
+                <input type="number" name="dayRating" min="1" max="10"><br />
+            </div>
+            <div class="row mb-3">
+                <input type="number" name="painLvl" placeholder="Pain Level: 1-10" min="1" max="10"><br />
+            </div>
+            <div class="row mb-3">
             <input type="number" name="fatigueLvl" placeholder="Fatigue Level: 1-10" min="1" max="10"><br />
+            </div>
+            <div class="row mb-3">
             <input type="number" name="cupsWater" placeholder="# of Water Glasses"><br />
+            </div>
+            <div class="row mb-3">
             <input type="number" name="sleepHrs" placeholder="# of Hours Slept"><br />
+            </div>
+            <div class="row mb-3">
             <input type="number" name="outsideTime" placeholder="Minutes Spent Outside"><br />
+            </div>
+            <div class="row mb-3">
             <input type="text" name="meds" placeholder="What Meds Were Taken"><br />
+            </div>
             <!-- radio buttons will be emoji's to replace labels -->
             <input type="radio" name="mood" value="Big-Frown" id="Big-Frown">
             <label for="Big-Frown">D:</label><br />
@@ -34,22 +51,38 @@
             <label for="Slight-Smile">:)</label><br />
             <input type="radio" name="mood" value="Big-Smile" id="Big-Smile">
             <label for="Big-Frown">:D</label><br />
-            <label for="stretch">Check if you stretched today</label>
-            <input type="checkbox" name="stretch" id="stretch"><br />
-            <textarea name="dayNotes" id="dayNotes" placeholder="How was your day? Type any further details here :D..."></textarea><br />
+            <label for="stretch">Stretched?</label>
+            <input class="mb-2" type="checkbox" name="stretch" id="stretch"><br />
+            
         </fieldset>
-        <fieldset name="foodLog">
+        <fieldset class="col" name="foodLog">
             <legend>Food Log</legend>
-            <label for="breakfast">Breakfast</label>
-            <input type="text" id="breakfast" name="breakfast" placeholder="Enter breakfast..."><br />
-            <label for="lunch">Lunch</label>
-            <input type="text" id="lunch" name="lunch" placeholder="Enter lunch..."><br />
-            <label for="dinner">Dinner</label>
-            <input type="text" id="dinner" name="dinner" placeholder="Enter dinner..."><br />
-            <label for="snacks">Snacks</label>
-            <input type="text" id="snacks" name="snacks" placeholder="Enter snacks...">
+            <div class="row mb-3">
+                <label for="breakfast">Breakfast</label>
+                <input type="text" id="breakfast" name="breakfast" placeholder="Enter breakfast..."><br />
+            </div>
+            <div class="row mb-3">
+                <label for="lunch">Lunch</label>
+                <input type="text" id="lunch" name="lunch" placeholder="Enter lunch..."><br />
+            </div>
+            <div class="row mb-3">
+                <label for="dinner">Dinner</label>
+                <input type="text" id="dinner" name="dinner" placeholder="Enter dinner..."><br />
+            </div>
+            <div class="row mb-3">
+                <label for="snacks">Snacks</label>
+                <input type="text" id="snacks" name="snacks" placeholder="Enter snacks...">
+            </div>
+            <div class="row mb-3">
+                <label for="snacks">Day Notes</label>
+                <textarea name="dayNotes" id="dayNotes" placeholder="How was your day? Type any further details here :D..."></textarea>
+            </div>
         </fieldset>
         <input type="submit" value="Add Log">
     </form>
+    <script src="../public/bootstrap/src/bootstrap-input-spinner.js"></script>
+    <script>
+        $("input[type='number']").inputSpinner();
+    </script>
 </body>
 </html>

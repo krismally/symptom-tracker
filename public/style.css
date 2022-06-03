@@ -17,6 +17,10 @@ nav a,
 	font-size: 25px;
 }
 
+h1 {
+	color: #023047;
+}
+
 .rows {
 	text-align: center;
 }
@@ -26,5 +30,16 @@ nav a,
 	min-width: 125px;
 	max-width: 175px;
 	text-align: center;
+	border-color: #023047;
+}
+
+.card:hover {
+	color: #8ECAE6;
+	border-color: #219EBC;
+	box-shadow: 3px 3px 1px #023047;
+}
+
+div a {
+	text-decoration: none;
 }
 

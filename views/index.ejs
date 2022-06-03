@@ -15,7 +15,7 @@
             <div class="col">
                 <a href="/symptomTracker/new" class="add-log">
                 <section class="new-log card mb-3 mx-3">
-                    <h2>Add new log!</h2>
+                    <h2 class="card-title my-3">Add new log!</h2>
                 </section>
                 </a>
             </div>
@@ -25,7 +25,7 @@
                     <div class="col">
                         <a href="/symptomTracker/<%= log._id %>">
                         <section class="card mb-3 mx-3">
-                            <h2 class="log-date card-title"><%=log.date.toLocaleDateString("en-US", { month: "short", day: "2-digit" })%></h2>
+                            <h2 class="log-date card-title my-3"><%=log.date.toLocaleDateString("en-US", { month: "short", day: "2-digit" })%></h2>
                         </section>
                     </a>
                     </div>

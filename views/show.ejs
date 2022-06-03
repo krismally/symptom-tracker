@@ -9,11 +9,13 @@
 </head>
 <body>
     <%- include("./partials/nav.ejs") %>
-    <h1><%= log.date.toLocaleDateString("en-US", { weekday: "long", month: "short", day: "2-digit", year: "numeric" })%>'s Entry</h1>
-    <a href="/symptomTracker/<%=log._id %>/edit"><input type="button" value="Edit Log"></a>
+    <h1 class="pt-4 m-3"><%= log.date.toLocaleDateString("en-US", { weekday: "long", month: "short", day: "2-digit", year: "numeric" })%>'s Entry</h1>
+    <section class="buttons pt-4 m-3 input-group">
+    <a href="/symptomTracker/<%=log._id %>/edit"><input type="button" value="Edit Log" class="btn me-2 edit text-light"></a>
     <form action="/symptomTracker/<%=log._id%>?_method=DELETE" method="POST">
-        <input type="submit" value="Delete Log">
+        <input type="submit" value="Delete Log" class="btn btn-danger">
     </form>
+    </section>
     <main class="entry m-3 container row-cols-1 g-4">
         <dl class="row my-3 g-2">
             <dt class="col-sm-4 fs-5">Overall Day Rating (1-10):</dt><dd class="col-sm-8 fs-5"><%= log.dayRating %></li>

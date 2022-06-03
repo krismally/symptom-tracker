@@ -48,6 +48,28 @@ div a {
 	text-decoration: none;
 }
 
+.edit,
+.add {
+	background-color: #023047 !important;
+}
+
+.edit:hover,
+.add:hover {
+	background-color: var(--bs-bg-light) !important;
+	color: #023047 !important;
+	border-color: #023047 !important;
+}
+
+.btn-danger:hover {
+	background-color: var(--bs-bg-light) !important;
+	color: var(--bs-danger) !important;
+	border-color: var(--bs-danger) !important;
+}
+
+.delete {
+	background-color: #FB8500 !important;
+}
+
 main.entry {
 	border: 1px solid #023047;
 }

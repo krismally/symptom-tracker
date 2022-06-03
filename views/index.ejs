@@ -10,21 +10,25 @@
 <body>
     <%- include("./partials/nav.ejs") %>
     <main class="log container">
+        <h1>My Logs</h1>
+        <div class="row row-cols-1 row-cols-md-4 g-4">
         <% if (logs.length > 0) { %>
+        <% logs.sort((a, b) => { return a.date - b.date }) %>
         <% logs.forEach(log => { %>
-            <% const logDate = log.date; %>
-            <% const today = new Date(); %>
-                <% if (logDate.getMonth() == today.getMonth()) { %>
-                   <section class="log-card">
-                       <a href="/symptomTracker/<%= log._id %>"><h2 class="log-date"><%=log.date.toLocaleDateString("en-US", { month: "short", day: "2-digit" })%></h2></a>
-                   </section>
-                <%   } %>
+            <div class="col">
+                <section class="card">
+                    <a href="/symptomTracker/<%= log._id %>" class="card-title"><h2 class="log-date "><%=log.date.toLocaleDateString("en-US", { month: "short", day: "2-digit" })%></h2></a>
+                </section>
+            </div>
         <%   }) %>
         <%   }  else { %>
-            <section class="new-log">
-                <a href="/symptomTracker/new" class="add-log">No logs yet this month...add one now!</h2>
-            </section>
+            <div class="col">
+                <section class="new-log card">
+                    <a href="/symptomTracker/new" class="add-log card-title">No logs yet this month...add one now!</h2>
+                </section>
+            </div>
          <%   } %>
+        </div>
     </main>
 </body>
 </html>

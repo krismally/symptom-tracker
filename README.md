@@ -17,9 +17,6 @@ Logr gives users the ability to track a variety of symptoms by filling out a Dai
 * Bootstrap
 * jQuery
 
-## Wireframe
-<img width="961" alt="wireframe" src="./public/images/health-tracker-app-wireframe.png">
-
 ## Planning
 ### Research
 First, I posted in chronic illness forums and talked with my friends that also have chronic illnesses. I got feedback on features users would want and any other expectations. Then, I examined similar apps to identify any commonalities. My research stage also included learning more about creating accessible applications!
@@ -35,10 +32,10 @@ Before starting to code, I created user stories in a [Trello Board](https://trel
 [Click Here to see the deployed app!](https://logr-symptom-tracker.herokuapp.com/) To add a new log entry click "New Log" and fill out form details.
 
 ## Current App - V1.0
-<img width="961" alt="wireframe" src="./public/images/v1-final.png">
-<img width="961" alt="wireframe" src="./public/images/v1-final1.png">
-<img width="961" alt="wireframe" src="./public/images/v1-final2.png">
-<img width="961" alt="wireframe" src="./public/images/v1-final3.png">
+<img width="961" alt="Dashboard" src="./public/images/v1-final.png">
+<img width="961" alt="New Log" src="./public/images/v1-final1.png">
+<img width="961" alt="Log Page" src="./public/images/v1-final2.png">
+<img width="961" alt="Edit Log" src="./public/images/v1-final3.png">
 
 ## Credits
 UI/UX Co-Designer - Blu Funk-Wilder - Figma

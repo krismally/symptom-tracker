@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Symptom Log</title>
-    <%- include("./partials/header.ejs") %>
+    <%- include("./partials/head.ejs") %>
 </head>
 <body>
-    <h1>Daily Symptom Log</h1>
-    <a href="symptomTracker/new"><button>Add New</button></a>
+    <%- include("./partials/nav.ejs") %>
     <main class="log container">
         <% if (logs.length > 0) { %>
         <% logs.forEach(log => { %>

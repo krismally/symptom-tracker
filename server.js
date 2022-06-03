@@ -47,7 +47,7 @@ app.get("/symptomTracker", (req, res) => {
 
 // N
 app.get("/symptomTracker/new", (req, res) => {
-    res.render("new.ejs")
+    res.render("new.ejs");
 });
 
 // D
@@ -60,9 +60,9 @@ app.delete("/symptomTracker/:id", (req, res) => {
 // U
 app.put("/symptomTracker/:id", (req, res) => {
     if (req.body.completed === "on") {
-        req.body.completed = true
+        req.body.completed = true;
     } else {
-        req.body.completed = false
+        req.body.completed = false;
     }
 
     req.body.date = new Date(req.body.date);
@@ -95,8 +95,8 @@ app.put("/symptomTracker/:id", (req, res) => {
         (error, updatedLog) => {
             res.redirect(`/symptomTracker/${req.params.id}`);
         }
-    )
-})
+    );
+});
 
 // C
 app.post('/symptomTracker', (req, res) => {

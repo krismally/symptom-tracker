@@ -53,6 +53,7 @@ div a {
 .add {
 	background-color: #023047 !important;
 	z-index: 99;
+	cursor: pointer;
 }
 
 .edit:hover,

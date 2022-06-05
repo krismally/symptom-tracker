@@ -52,6 +52,7 @@ div a {
 .edit,
 .add {
 	background-color: #023047 !important;
+	z-index: 99;
 }
 
 .edit:hover,

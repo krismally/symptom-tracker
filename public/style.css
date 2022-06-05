@@ -67,10 +67,6 @@ div a {
 	border-color: var(--bs-danger) !important;
 }
 
-.delete {
-	background-color: #FB8500 !important;
-}
-
 main.entry {
 	border: 1px solid #023047;
 }

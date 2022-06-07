@@ -1,10 +1,17 @@
 # Logr
-A CRUD web application to track symptoms for people with chronic illnesses. Based off of my own analog symptom tracker!
+Logr is a Full-Stack CRUD app that gives users the ability to track a variety of symptoms by filling out a Daily Log. The Daily Log is designed to be thorough while remaining easy to complete. Logr's UI/UX design prioritizes accessibility and responsiveness with large text and icons for readability, user-friendly form inputs, and a consistent, well-thought out structure. 
 
-## Logr's Story
+## Motivation
 I came up with the idea for Logr after I had created a Daily Symptom Log to better track and manage my Fibromyalgia. An issue many people with chronic illnesses have (including myself) is remembering all of the triggers, symptoms, and general chaos each day includes. This makes it harder to manage your symptoms and almost impossible to fully explain them to doctors. Logr is a solution to that!
 
-Logr gives users the ability to track a variety of symptoms by filling out a Daily Log. The Daily Log is designed to be thorough while remaining easy to complete. Logr's UI/UX design prioritizes accessibility and responsiveness with large text and icons for readability, user-friendly form inputs, and a consistent, well-thought out structure. 
+## Table of Contents
+1. [Technologies Used](#technologies-used)
+2. [Planning](#planning)
+3. [Getting Started](#getting-started)
+4. [Current App - beta](#current-app---beta)
+5. [Credits](#credits)
+6. [Status](#status)
+7. [Future Enhancements](#future-enhancements)
 
 ## Technologies Used
 * HTML5
@@ -29,9 +36,9 @@ Designed in collaboration with Blu Funk-Wilder
 Before starting to code, I created user stories in a [Trello Board](https://trello.com/b/0pU2UzMl/logr-user-stories). These acted as a to-do list as I developed Logr.
 
 ## Getting Started
-[Click Here to see the deployed app!](https://logr-symptom-tracker.herokuapp.com/) To add a new log entry click "New Log" and fill out form details.
+[Click Here to see the deployed app!](https://logr-symptom-tracker.herokuapp.com/) To add a new log entry click "New Log" and fill out form details. Please note - the User and Share buttons are empty links because those features are in development.
 
-## Current App - V1.0
+## Current App - beta
 <img width="961" alt="Dashboard" src="./public/images/v1-final.png">
 <img width="961" alt="New Log" src="./public/images/v1-final1.png">
 <img width="961" alt="Log Page" src="./public/images/v1-final2.png">
@@ -39,6 +46,9 @@ Before starting to code, I created user stories in a [Trello Board](https://trel
 
 ## Credits
 UI/UX Co-Designer - Blu Funk-Wilder - Figma
+
+## Status
+1. Debugging: On older iOS(pre iPhone 12) - The add new log button is not submitting the new log form 
 
 ## Future Enhancements
 * Add User Auth so each user can add their own private logs
